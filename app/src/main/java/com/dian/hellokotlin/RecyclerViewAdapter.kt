@@ -9,6 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 
+import kotlinx.android.synthetic.main.item_list.view.*
+
 /**
  * Created by root on 1/16/18.
  */
@@ -26,12 +28,12 @@ class RecyclerViewAdapter(private val context: Context, private val items: List<
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
-        val name = view.findViewById<TextView>(R.id.name)
-        private val image = view.findViewById<ImageView>(R.id.image)
+//        val name = view.findViewById<TextView>(R.id.name)
+//        private val image = view.findViewById<ImageView>(R.id.image)
 
         fun bindItem(items: Item, listener: (Item) -> Unit) {
-            name.text = items.name
-            Glide.with(itemView.context).load(items.image).into(image)
+            itemView.name.text = items.name
+            Glide.with(itemView.context).load(items.image).into(itemView.image)
             itemView.setOnClickListener { listener(items) }
         }
     }

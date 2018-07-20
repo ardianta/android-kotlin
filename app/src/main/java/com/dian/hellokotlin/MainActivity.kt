@@ -1,11 +1,11 @@
 package com.dian.hellokotlin
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.widget.TextView
 import android.widget.Toast
+// impor kotlin anroid extension
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,11 +15,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val list = findViewById<RecyclerView>(R.id.club_list)
+//        val list = findViewById<RecyclerView>(R.id.club_list)
+
         initData()
 
-        list.layoutManager = LinearLayoutManager(this)
-        list.adapter = RecyclerViewAdapter(this, items){
+        // menggunakan kontlin android extension
+        club_list.layoutManager = LinearLayoutManager(this)
+        club_list.adapter =  RecyclerViewAdapter(this, items){
             val toast = Toast.makeText(applicationContext, it.name, Toast.LENGTH_SHORT)
             toast.show()
         }
